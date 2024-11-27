@@ -3,8 +3,10 @@
   "displayName": "JBookLabFlow",
   "description": "Some additional functions to help make a jupyterbook easier to use as a lab notebook",
   "version": "0.2.0",
+  "publisher": "Mordecai64",
+  "repository": "https://github.com/Mordecai64/JBookLabFlow",
   "engines": {
-    "vscode": "^1.86.0"
+    "vscode": "^1.95.0"
   },
   "categories": [
     "Other"
