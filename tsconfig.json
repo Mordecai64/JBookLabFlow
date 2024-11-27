@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2020",
+		"outDir": "out",
+		"lib": [
+			"ES2020",
+			"dom"
+		],
+		"sourceMap": true,
+		"rootDir": "src",
+		"strict": true,
+		"esModuleInterop": true, /* Enable compatibility with CommonJS and ES modules */
+		"moduleResolution": "node", /* Resolve Node.js modules */
+		"typeRoots": [
+			"node_modules/@types"
+		], /* Ensure TypeScript knows where to find type declarations */
+		"resolveJsonModule": true /* Allow importing .json files */
+	},
+	"include": [
+		"src"
+	], /* Include all files in the src folder */
+	"exclude": [
+		"node_modules",
+		".vscode-test"
+	] /* Exclude unnecessary files/folders */
+}

@@ -1,0 +1,79 @@
+{
+  "name": "jupyterbooklabflow",
+  "displayName": "JBookLabFlow",
+  "description": "Some additional functions to help make a jupyterbook easier to use as a lab notebook",
+  "version": "0.2.0",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.importLocal",
+        "title": "JBookLabFlow: Import Photo from Local Disk"
+      },
+      {
+        "command": "extension.newNotebookPage",
+        "title": "JBookLabFlow: New Notebook Page"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.newNotebookPage",
+        "key": "ctrl+shift+alt+n",
+        "mac": "cmd+alt+shift+n",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "My JBook",
+      "properties": {
+        "JBookLabFlow.authorName": {
+          "type": "string",
+          "default": "Your Name",
+          "description": "Author name to include in notebook metadata."
+        },
+        "JBookLabFlow.pythonKernel": {
+          "type": "string",
+          "default": "python3",
+          "description": "Python kernel name for Jupyter notebooks."
+        },
+        "JBookLabFlow.defaultNotebookFolder": {
+          "type": "string",
+          "default": "notebook-pages",
+          "description": "Default folder for saving notebook pages."
+        },
+        "JBookLabFlow.defaultImageFolder": {
+          "type": "string",
+          "default": "images/raw",
+          "description": "Default folder for saving imported images."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.2.5",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.5.4"
+  }
+}
