@@ -142,9 +142,16 @@ export function activate(context: vscode.ExtensionContext) {
 			if (editor) {
 				const markdown = fileUris.map(fileUri => {
 					const ext = path.extname(fileUri.fsPath);
-					const formattedFilename = `${date}-${imageName}${ext}`;
+
+					// Format image name and identifiers by replacing spaces with hyphens
+					const formattedImageName = imageName.trim().toLowerCase().replace(/\s+/g, '-');
+					const formattedFilename = `${date}-${formattedImageName}${ext}`;
 					const relativePathForMyST = `../images/jb/${formattedFilename}`;
-					return `\`\`\`{figure} ${relativePathForMyST}\n:name: ${date}-figure-${imageName}\n${caption || ''}\n\`\`\``;
+
+					// Also format the figure name identifier
+					const figureIdentifier = `${date}-figure-${formattedImageName}`;
+
+					return `\`\`\`{figure} ${relativePathForMyST}\n:name: ${figureIdentifier}\n${caption || ''}\n\`\`\``;
 				}).join('\n\n');
 
 				editor.insertSnippet(new vscode.SnippetString(markdown));
